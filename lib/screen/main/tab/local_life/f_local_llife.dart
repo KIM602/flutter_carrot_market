@@ -19,7 +19,8 @@ class _LocalLifeFragmentState extends ConsumerState<LocalLifeFragment> {
 
       if (scrollController.position.pixels > 100 && !floatingState.isSmall) {
         ref.read(floatingButtonStateProvider.notifier).changeButtonSize(true);
-      } else if (scrollController.position.pixels < 100 && floatingState.isSmall) {
+      } else if (scrollController.position.pixels < 100 &&
+          floatingState.isSmall) {
         ref.read(floatingButtonStateProvider.notifier).changeButtonSize(false);
       }
     });
@@ -31,6 +32,7 @@ class _LocalLifeFragmentState extends ConsumerState<LocalLifeFragment> {
     return ListView(
       controller: scrollController,
       children: [
+        Image.network('https://picsum.photos/id/403/200/200', fit: BoxFit.fill),
         Container(height: 500, color: Colors.orange),
         Container(height: 500, color: Colors.green),
         Container(height: 500, color: Colors.orange),

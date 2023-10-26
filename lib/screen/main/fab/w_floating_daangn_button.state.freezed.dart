@@ -17,6 +17,7 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$FloatingButtonState {
   bool get isExpanded => throw _privateConstructorUsedError;
+
   bool get isSmall => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -29,6 +30,7 @@ abstract class $FloatingButtonStateCopyWith<$Res> {
   factory $FloatingButtonStateCopyWith(
           FloatingButtonState value, $Res Function(FloatingButtonState) then) =
       _$FloatingButtonStateCopyWithImpl<$Res, FloatingButtonState>;
+
   @useResult
   $Res call({bool isExpanded, bool isSmall});
 }
@@ -40,6 +42,7 @@ class _$FloatingButtonStateCopyWithImpl<$Res, $Val extends FloatingButtonState>
 
   // ignore: unused_field
   final $Val _value;
+
   // ignore: unused_field
   final $Res Function($Val) _then;
 
@@ -68,6 +71,7 @@ abstract class _$$FloatingButtonStateImplCopyWith<$Res>
   factory _$$FloatingButtonStateImplCopyWith(_$FloatingButtonStateImpl value,
           $Res Function(_$FloatingButtonStateImpl) then) =
       __$$FloatingButtonStateImplCopyWithImpl<$Res>;
+
   @override
   @useResult
   $Res call({bool isExpanded, bool isSmall});
@@ -142,8 +146,10 @@ abstract class _FloatingButtonState implements FloatingButtonState {
 
   @override
   bool get isExpanded;
+
   @override
   bool get isSmall;
+
   @override
   @JsonKey(ignore: true)
   _$$FloatingButtonStateImplCopyWith<_$FloatingButtonStateImpl> get copyWith =>

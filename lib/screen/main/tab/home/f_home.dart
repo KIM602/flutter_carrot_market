@@ -19,7 +19,8 @@ class _HomeFragmentState extends ConsumerState<HomeFragment> {
 
       if (scrollController.position.pixels > 100 && !floatingState.isSmall) {
         ref.read(floatingButtonStateProvider.notifier).changeButtonSize(true);
-      } else if (scrollController.position.pixels < 100 && floatingState.isSmall) {
+      } else if (scrollController.position.pixels < 100 &&
+          floatingState.isSmall) {
         ref.read(floatingButtonStateProvider.notifier).changeButtonSize(false);
       }
     });
