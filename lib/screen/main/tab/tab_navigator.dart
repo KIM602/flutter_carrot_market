@@ -14,11 +14,12 @@ class TabNavigator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Navigator(
-        key: navigatorKey,
-        onGenerateRoute: (routeSettings) {
-          return MaterialPageRoute(
-            builder: (context) => tabItem.firstPage,
-          );
-        });
+      key: navigatorKey,
+      onGenerateRoute: (routeSettings) {
+        return MaterialPageRoute(
+          builder: (context) => tabItem.firstPage,
+        );
+      },
+    );
   }
 }
