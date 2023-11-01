@@ -3,12 +3,13 @@ import 'package:fast_app_base/common/common.dart';
 import 'package:fast_app_base/common/widget/animated_width_collapse.dart';
 import 'package:fast_app_base/screen/main/fab/floating_daagn_button.riverpod.dart';
 import 'package:fast_app_base/screen/main/s_main.dart';
+import 'package:fast_app_base/screen/write/s_write.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class FloatingDaangnButton extends ConsumerWidget {
-
   static const height = 100.0;
+
   FloatingDaangnButton({super.key});
 
   final duration = 300.ms;
@@ -43,7 +44,7 @@ class FloatingDaangnButton extends ConsumerWidget {
                     Container(
                       width: 160,
                       padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.only(right: 15, bottom: 10),
+                      margin: const EdgeInsets.only(right: 15),
                       decoration: BoxDecoration(
                           color: context.appColors.floatingActionLayer,
                           borderRadius: BorderRadius.circular(10)),
@@ -59,18 +60,23 @@ class FloatingDaangnButton extends ConsumerWidget {
                       ),
                     ),
                     height10,
-                    Container(
-                      width: 160,
-                      padding: const EdgeInsets.all(15),
-                      margin: const EdgeInsets.only(right: 15, bottom: 10),
-                      decoration: BoxDecoration(
-                          color: context.appColors.floatingActionLayer,
-                          borderRadius: BorderRadius.circular(10)),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          _floatItem('내 물건 팔기', '$basePath/fab/fab_06.png'),
-                        ],
+                    Tap(
+                      onTap: () {
+                        Nav.push(const WriteScreen());
+                      },
+                      child: Container(
+                        width: 160,
+                        padding: const EdgeInsets.all(15),
+                        margin: const EdgeInsets.only(right: 15, bottom: 10),
+                        decoration: BoxDecoration(
+                            color: context.appColors.floatingActionLayer,
+                            borderRadius: BorderRadius.circular(10)),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            _floatItem('내 물건 팔기', '$basePath/fab/fab_06.png'),
+                          ],
+                        ),
                       ),
                     ),
                   ],

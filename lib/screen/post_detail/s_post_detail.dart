@@ -24,13 +24,13 @@ class PostDetailScreen extends ConsumerWidget {
     final productPost = ref.watch(productPostProvider(id));
     return productPost.when(
         data: (data) => _PostDetail(
-              data.simpleProductPost,
+              simpleProductPost ?? data.simpleProductPost,
               productPost: data,
             ),
         error: (error, trace) => '에러발생'.text.make(),
         loading: () => simpleProductPost != null
             ? _PostDetail(simpleProductPost!)
-            : Center(
+            : const Center(
                 child: CircularProgressIndicator(),
               ));
   }
@@ -51,7 +51,7 @@ class _PostDetail extends HookWidget {
       child: Stack(
         children: [
           SingleChildScrollView(
-            padding: EdgeInsets.only(bottom: bottomMenuHeight),
+            padding: const EdgeInsets.only(bottom: bottomMenuHeight),
             child: Column(
               children: [
                 _ImagePager(
@@ -88,11 +88,11 @@ class PostDetailBottomMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       height: _PostDetail.bottomMenuHeight,
       child: Column(
         children: [
-          Line(),
+          const Line(),
           Expanded(
             child: Row(
               children: [
@@ -101,7 +101,7 @@ class PostDetailBottomMenu extends StatelessWidget {
                   height: 25,
                 ),
                 width30,
-                VerticalLine().pSymmetric(v: 15),
+                const VerticalLine().pSymmetric(v: 15),
                 width30,
                 Expanded(
                   child: Column(
@@ -158,19 +158,20 @@ class _ImagePager extends StatelessWidget {
                     ))
                 .toList(),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: SmoothPageIndicator(
-              controller: pageController,
-              count: simpleProductPost.product.images.length,
-              effect: JumpingDotEffect(
-                verticalOffset: 10,
-                dotColor: Colors.white54,
-                activeDotColor: Colors.black45,
+          if (simpleProductPost.product.images.length > 1)
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: SmoothPageIndicator(
+                controller: pageController,
+                count: simpleProductPost.product.images.length,
+                effect: const JumpingDotEffect(
+                  verticalOffset: 10,
+                  dotColor: Colors.white54,
+                  activeDotColor: Colors.black45,
+                ),
+                onDotClicked: (index) {},
               ),
-              onDotClicked: (index) {},
             ),
-          ),
         ],
       ),
     );
@@ -192,20 +193,20 @@ class _AppBar extends StatelessWidget {
             onPressed: () {
               Nav.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios_new_rounded,
               color: Colors.white,
             )),
         actions: [
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.share,
                 color: Colors.white,
               )),
           IconButton(
               onPressed: () {},
-              icon: Icon(
+              icon: const Icon(
                 Icons.more_vert,
                 color: Colors.white,
               )),
